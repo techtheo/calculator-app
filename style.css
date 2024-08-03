@@ -1,0 +1,610 @@
+:root {
+    /* --- Colors ---- */
+    /* Theme 1 */
+    /* Backgrounds */
+    --th1-main-bg: hsl(222, 26%, 31%); /* Very dark desaturated blue */
+    --th1-tg-kpd-bg: hsl(223, 31%, 20%); /* Very dark desaturated blue */
+    --th1-scn-bg: hsl(224, 36%, 15%); /* Very dark desaturated blue */
+    /* Keys */
+    --th1-key-bg: hsl(225, 21%, 49%); /* Desaturated dark blue */
+    --th1-key-sdw: hsl(224, 28%, 35%); /* Desaturated dark blue */
+    --th1-key-tg-bg: hsl(6, 63%, 50%); /* red */
+    --th1-key-tg-bg-sdw: hsl(6, 70%, 34%); /* dark red */
+    --th1-key-bg-lgo: hsl(30, 25%, 89%); /* Light grayish orange */
+    --th1-key-sdw-lgo: hsl(28, 16%, 65%); /* Grayish orange */
+    /* Text */
+    --th1-header-color: #fff;
+    --th1-vry-drk-gr-bl: hsl(221, 14%, 31%); /* Very dark grayish blue */
+  
+    /* Theme 2 */
+    /* Backgrounds */
+    --th2-main-bg: hsl(0, 0%, 90%); /* Light gray */
+    --th2-tg-kpd-bg: hsl(0, 5%, 81%); /* Grayish red */
+    --th2-scn-bg: hsl(0, 100%, 100%); /* Very light gray */
+    /* Keys */
+    --th2-key-bg: hsl(185, 42%, 37%); /* Dark moderate cyan */
+    --th2-key-sdw: hsl(185, 58%, 25%); /* Very dark cyan */
+    --th2-key-tg-bg: hsl(25, 98%, 40%); /* Orange */
+    --th2-key-tg-bg-sdw: hsl(25, 99%, 27%); /* Dark orange */
+    --th2-key-bg-lgy: hsl(45, 7%, 89%); /* Light grayish yellow */
+    --th2-key-sdw-dgo: hsl(35, 11%, 61%); /* Dark grayish orange */
+    /* Text */
+    --th2-header-color: hsl(60, 10%, 19%); /* Very dark grayish yellow */
+    --th2-vry-drk-gr-yel: hsl(60, 10%, 19%); /* Very dark grayish yellow */
+  
+    /* Theme 3 */
+    /* Backgrounds */
+    --th3-main-bg: hsl(268, 75%, 9%); /* Very dark violet */
+    --th3-tg-kpd-scn-bg: hsl(268, 71%, 12%); /* Very dark violet */
+  
+    /* Keys */
+    --th3-key-bg: hsl(281, 89%, 26%); /*  Dark violet */
+    --th3-key-sdw: hsl(285, 91%, 52%); /* Vivid magenta */
+    --th3-key-tg-bg: hsl(176, 100%, 44%); /* Pure cyan */
+    --th3-key-tg-bg-sdw: hsl(177, 92%, 70%); /* Soft cyan */
+    --th3-key-bg-vdv: hsl(268, 47%, 21%); /* Very dark violet */
+    --th3-key-sdw-dm: hsl(290, 70%, 36%); /* Dark magenta  */
+    /* Text */
+    --th3-lgt-yel: hsl(52, 100%, 62%); /* Light yellow */
+    --th3-vry-drk-blue: hsl(198, 20%, 13%); /* Very dark blue */
+  }
+  
+  .attribution {
+    font-size: 11px;
+    text-align: center;
+  }
+  
+  .attribution a {
+    color: rgb(0, 178, 248);
+  }
+  
+  html {
+    height: 100%;
+    font-size: 100%;
+    box-sizing: border-box;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  p {
+    margin: 0;
+    overflow-wrap: break-word;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--th1-main-bg);
+    line-height: 1.5;
+    font-family: "League Spartan", sans-serif;
+    font-size: 2rem;
+    overflow-x: hidden;
+    transition: all 0.15s ease-in;
+  }
+  
+  img,
+  picture,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+  
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+  
+  input {
+    padding: 0;
+    margin: 0;
+    border: 0px;
+    accent-color: red;
+  }
+  
+  ul li {
+    list-style: none;
+  }
+  
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  #root,
+  #__next {
+    isolation: isolate;
+  }
+  
+  /* Helper classe */
+  
+  .visually-hidden {
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+  }
+  
+  .container {
+    --max-width: 540px;
+    /* --padding: 3rem; */
+    width: min(var(--max-width), 100% - (var(--padding)));
+    margin-inline: auto;
+  }
+  
+  .flex {
+    display: flex;
+  }
+  
+  .jc-sb {
+    justify-content: space-between;
+  }
+  
+  .jc-sa {
+    justify-content: space-around;
+  }
+  
+  .ai-c {
+    align-items: center;
+  }
+  
+  /* Themes */
+  [data-theme="th-1"] {
+    background-color: var(--th1-main-bg);
+  }
+  
+  [data-theme="th-1"] .calc-theme {
+    color: var(--th1-header-color);
+  }
+  
+  [data-theme="th-1"] .radio-btns {
+    background-color: var(--th1-tg-kpd-bg);
+  }
+  
+  [data-theme="th-1"] .output {
+    color: #fff;
+    background-color: var(--th1-scn-bg);
+  }
+  
+  [data-theme="th-1"] .calc-buttons {
+    background-color: var(--th1-tg-kpd-bg);
+  }
+  
+  [data-theme="th-1"] button {
+    box-shadow: 0 4px 0 var(--th1-key-sdw-lgo);
+  }
+  
+  [data-theme="th-1"] .btn {
+    color: var(--th1-vry-drk-gr-bl);
+    background-color: var(--th1-key-bg-lgo);
+  }
+  
+  [data-theme="th-1"] :is(#btn-del, #btn-reset) {
+    color: #fff;
+    background-color: var(--th1-key-bg);
+    box-shadow: 0 4px 0 var(--th1-key-sdw);
+  }
+  
+  [data-theme="th-1"] :is(#btn-del, #btn-reset, #btn-result):hover {
+    background-color: #a2b3e1;
+  }
+  
+  [data-theme="th-1"] #btn-result {
+    background-color: var(--th1-key-tg-bg);
+    box-shadow: 0 4px 0 var(--th1-key-tg-bg-sdw);
+  }
+  
+  [data-theme="th-1"] #btn-result:hover,
+  [data-theme="th-1"] #btn-resul:active {
+    background-color: #f96c5b;
+  }
+  
+  /* Theme 2 */
+  
+  [data-theme="th-2"] {
+    background-color: var(--th2-main-bg);
+  }
+  
+  [data-theme="th-2"] .calc-theme {
+    color: var(--th2-header-color);
+  }
+  
+  [data-theme="th-2"] .radio-btns {
+    background-color: var(--th2-tg-kpd-bg);
+  }
+  
+  [data-theme="th-2"] .output {
+    color: var(--th2-vry-drk-gr-yel);
+    background-color: white;
+  }
+  
+  [data-theme="th-2"] .calc-buttons {
+    background-color: var(--th2-tg-kpd-bg);
+  }
+  
+  [data-theme="th-2"] button {
+    box-shadow: 0 4px 0 var(--th1-key-sdw-lgo);
+  }
+  
+  [data-theme="th-2"] :is(#btn-del, #btn-reset) {
+    color: #fff;
+    background-color: var(--th1-key-bg);
+    box-shadow: 0 4px 0 var(--th1-key-sdw);
+  }
+  
+  [data-theme="th-2"] :is(#btn-del, #btn-reset, #btn-result):hover {
+    background-color: #a2b3e1;
+  }
+  
+  [data-theme="th-2"] #btn-result {
+    background-color: var(--th1-key-tg-bg);
+    box-shadow: 0 4px 0 var(--th1-key-tg-bg-sdw);
+  }
+  
+  [data-theme="th-2"] #btn-result:hover,
+  [data-theme="th-2"] #btn-resul:active {
+    background-color: #f96c5b;
+  }
+  
+  /* Theme 3 */
+  
+  [data-theme="th-3"] {
+    background-color: var(--th3-main-bg);
+    color: var(--th3-lgt-yel);
+  }
+  
+  [data-theme="th-3"] .calc-theme {
+    color: var(--th3-header-color);
+  }
+  
+  [data-theme="th-3"] .radio-btns {
+    background-color: var(--th3-tg-kpd-scn-bg);
+  }
+  
+  [data-theme="th-3"] .output {
+    background-color: var(--th3-tg-kpd-scn-bg);
+  }
+  
+  [data-theme="th-3"] .calc-buttons {
+    background-color: var(--th3-tg-kpd-scn-bg);
+  }
+  
+  [data-theme="th-3"] button {
+    box-shadow: 0 4px 0 var(--th1-key-sdw-lgo);
+  }
+  
+  [data-theme="th-3"] .btn {
+    color: inherit;
+    background-color: var(--th3-key-bg-vdv);
+    box-shadow: 0 4px 0 var(--th3-key-sdw);
+  }
+  
+  [data-theme="th-3"] .btn:hover {
+    background-color: var(--th3-key-bg);
+  }
+  
+  [data-theme="th-3"] :is(#btn-del, #btn-reset) {
+    color: #fff;
+    background-color: var(--th3-key-bg);
+  }
+  
+  [data-theme="th-3"] :is(#btn-del, #btn-reset):hover {
+    background-color: var(--th3-key-sdw);
+  }
+  
+  [data-theme="th-3"] #btn-result {
+    color: var(--th3-vry-drk-blue);
+    background-color: var(--th3-key-tg-bg);
+    box-shadow: 0 4px 0 var(--th3-key-tg-bg-sdw);
+  }
+  
+  [data-theme="th-3"] #btn-result:hover {
+    background-color: var(--th3-key-tg-bg-sdw);
+  }
+  
+  /* Calculator */
+  
+  .calc-body {
+    margin-top: 1.7rem;
+  }
+  
+  /* Theme toggler */
+  .theme-toggler {
+    margin-bottom: 2.2rem;
+  }
+  
+  .calc-theme {
+    color: inherit;
+  }
+  
+  .calc-theme h1 {
+    font-size: 2rem;
+    color: inherit;
+  }
+  
+  :is(legend, label) {
+    color: inherit;
+    font-size: 0.8rem;
+  }
+  
+  .theme-toggle-btn {
+    align-items: end;
+    gap: 1.6rem;
+  }
+  
+  .radio-btns {
+    display: flex;
+    gap: 7px;
+    padding: 0.25rem;
+    border-radius: 2rem;
+  }
+  
+  input[type="radio"] {
+    cursor: pointer;
+    appearance: none;
+    margin: 0;
+    width: 1rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: inherit;
+    transition: background-color 0.15s ease-in-out;
+  }
+  
+  input[type="radio"]:first-of-type:checked {
+    background-color: var(--th1-key-tg-bg);
+  }
+  
+  input[type="radio"]:nth-of-type(2):checked {
+    background-color: var(--th2-key-tg-bg);
+  }
+  
+  input[type="radio"]:last-of-type:checked {
+    background-color: var(--th3-key-tg-bg);
+  }
+  
+  input[type="radio"]:hover {
+    background-color: #fff;
+  }
+  
+  /* Screen */
+  .output {
+    --height: 5.3125rem;
+    font-size: 2.5rem;
+    text-align: end;
+    line-height: var(--height);
+    padding-inline: 1.5rem;
+    overflow-x: hidden;
+    min-height: var(--height);
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+  
+  .previous-operand {
+    font-size: 1.25rem;
+    line-height: 1.3;
+    color: #a2b3e1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    padding: 0.25rem 1.5rem;
+  }
+  
+  /* Buttons */
+  .calc-buttons {
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 0.7rem;
+    column-gap: 0.7rem;
+    row-gap: 1rem;
+  }
+  
+  button {
+    cursor: pointer;
+    border: 0;
+    border-radius: 0.2rem;
+  }
+  
+  .btn {
+    align-self: stretch;
+    aspect-ratio: 1;
+    padding-block: 0.5rem;
+  }
+  
+  .btn:hover,
+  .btn:active {
+    background-color: #fff;
+  }
+  
+  :is(#btn-del, #btn-reset) {
+    font-size: 1.25rem;
+  }
+  
+  #btn-reset {
+    font-size: 1.25rem;
+    grid-column: 1 / 3;
+    width: 100%;
+    aspect-ratio: initial;
+  }
+  
+  :is(#btn-reset, #btn-result) {
+    width: 100%;
+    aspect-ratio: initial;
+    padding-block: 0.9rem;
+  }
+  
+  #btn-result {
+    color: #fff;
+    font-size: 1.25rem;
+    grid-column: 3 / 5;
+  }
+  
+  :is(button, #btn-del, #btn-reset, #btn-result):active {
+    transform: translateY(4px);
+    box-shadow: 0 1px 0 var(--th1-key-sdw);
+  }
+  
+  footer {
+    margin-top: 2rem;
+  }
+  
+/* Small devices (phones, 600px and below) */
+@media (max-width: 600px) {
+    .container {
+      --padding: 1rem;
+      padding: 1rem;
+      font-size: 1.6rem;
+    }
+  
+    .theme-toggle-btn {
+      gap: 0.8rem;
+    }
+  
+    .radio-btns {
+      gap: 5px;
+    }
+  
+    .output {
+      --height: 4rem;
+      font-size: 1.5rem;
+      padding-inline: 1rem;
+    }
+  
+    .previous-operand {
+      font-size: 1rem;
+    }
+  
+    .calc-buttons {
+      padding: 1rem;
+      gap: 0.5rem;
+    }
+  
+    .btn {
+      font-size: 1.5rem;
+      aspect-ratio: 1;
+      padding: 0.2rem;
+    }
+  
+    :is(#btn-reset, #btn-result) {
+      font-size: 1rem;
+    }
+  
+    .calc-body {
+      margin-top: 1rem;
+    }
+  }
+  
+  /* Medium devices (tablets, 601px to 768px) */
+  @media (min-width: 601px) and (max-width: 768px) {
+    .container {
+      --padding: 2rem;
+      padding: 2rem;
+      font-size: 1.8rem;
+    }
+  
+    .theme-toggle-btn {
+      gap: 1.2rem;
+    }
+  
+    .radio-btns {
+      gap: 6px;
+    }
+  
+    .output {
+      --height: 5rem;
+      font-size: 2rem;
+      padding-inline: 1.2rem;
+    }
+  
+    .previous-operand {
+      font-size: 1.1rem;
+    }
+  
+    .calc-buttons {
+      padding: 1.2rem;
+      gap: 0.6rem;
+    }
+  
+    .btn {
+      font-size: 1.8rem;
+      aspect-ratio: 1;
+      padding: 0.3rem;
+    }
+  
+    :is(#btn-reset, #btn-result) {
+      font-size: 1.2rem;
+    }
+  
+    .calc-body {
+      margin-top: 2rem;
+    }
+  }
+  
+  /* Large devices (desktops, 769px and up) */
+  @media (min-width: 769px) {
+    .container {
+      --padding: 3rem;
+      padding: 3rem;
+      font-size: 2rem;
+    }
+  
+    .theme-toggle-btn {
+      gap: 1.6rem;
+    }
+  
+    .radio-btns {
+      gap: 7px;
+    }
+  
+    .output {
+      --height: 7.8rem;
+      font-size: 3.5rem;
+      padding-inline: 1.8rem;
+    }
+  
+    .previous-operand {
+      font-size: 1.25rem;
+    }
+  
+    .calc-buttons {
+      padding: 2rem;
+      row-gap: 1.8rem;
+      column-gap: 1.5rem;
+      grid-template-rows: repeat(4, 3.8rem);
+    }
+  
+    .btn {
+      font-size: 2.5rem;
+      padding: 0;
+      justify-self: stretch;
+      width: 100%;
+      aspect-ratio: 0;
+      border-radius: 0.7rem;
+    }
+  
+    :is(#btn-reset, #btn-result) {
+      font-size: 1.6rem;
+    }
+  
+    .calc-body {
+      margin-top: 6rem;
+    }
+  }
+  
